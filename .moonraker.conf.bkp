@@ -15,7 +15,7 @@ cors_domains:
   *://app.fluidd.xyz
 
 trusted_clients:
-  10.0.0.0/8
+  100.0.0.0/8
   127.0.0.0/8
   169.254.0.0/16
   172.16.0.0/12
@@ -36,10 +36,15 @@ provider: systemd_cli
 [update_manager]
 enable_auto_refresh: True
 
-# this enabled fluidd updates
-[update_manager client fluidd]
+[update_manager mainsail]
 type: web
-repo: fluidd-core/fluidd
-path: ~/fluidd
+repo: mainsail-crew/mainsail
+path: ~/mainsail
+
+[update_manager timelapse]
+type: git_repo
+primary_branch: main
+path: ~/moonraker-timelapse
+origin: https://github.com/mainsail-crew/moonraker-timelapse.git
 
 [timelapse]
